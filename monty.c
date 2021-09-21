@@ -9,7 +9,11 @@
 int main(int argc, char **argv)
 {
 	FILE *fs = NULL;
+	char *line = NULL;
+	size_t line_length = 0;
 
+	(void)line;
+	(void)line_length;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: %s file\n", argv[0]);
@@ -20,6 +24,10 @@ int main(int argc, char **argv)
 	{
 		fprintf(stderr, "Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
+	}
+	while (getline(&line, &line_length, fs) != -1)
+	{
+		printf("%s", line);
 	}
 
 	return (0);

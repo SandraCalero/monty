@@ -1,10 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define  _GNU_SOURCE /* To compile and run getline*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 
 /**
