@@ -9,8 +9,10 @@
 int main(int argc, char **argv)
 {
 	FILE *fs = NULL;
-	char *line = NULL;
+	char *line = NULL, *token = NULL;
 	size_t line_length = 0;
+	stack_t *stack = NULL;
+	unsigned int line_number = 0;
 
 	if (argc != 2)
 		print_error_1(argv[0]);
@@ -18,7 +20,12 @@ int main(int argc, char **argv)
 	if (fs == NULL)
 		print_error_2(argv[1]);
 	while (getline(&line, &line_length, fs) != -1)
-		printf("%s", line);
+	{
+		line_number++;
+		token = strtok(line, " \n\t\r");
+		if (token != NULL)
+			opcode(&stack, line_number, token);
+	}
 
 	return (0);
 }

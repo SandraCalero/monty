@@ -51,4 +51,9 @@ stack_t *enqueue_node(stack_t **head, const int n);
 void print_error_1(char *msg);
 void print_error_2(char *msg);
 
+/*These function are in the opcode.c file*/
+void opcode(stack_t **stack,unsigned int line_number, char *token);
+void execute_push(stack_t **stack,unsigned int line_number);
+void print_stack(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
