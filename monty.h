@@ -1,14 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define  _GNU_SOURCE /* To compile and run getline*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-
+/*#include <unistd.h>*/
+/*#include <sys/types.h>*/
+/*#include <sys/stat.h>*/
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -45,10 +43,8 @@ size_t print_stack_t(const stack_t *h);
 stack_t *push_node(stack_t **head, const int n);
 stack_t *enqueue_node(stack_t **head, const int n);
 
-/*These functions are in the ....c file*/
-
-/*These functions are in the print_errors_1.c file*/
-void print_error_1(char *msg);
-void print_error_2(char *msg);
+/*These functions are in the print_error_message.c file*/
+void print_error_1(void);
+void print_error_2(char *file_name);
 
 #endif /* MONTY_H */
