@@ -47,4 +47,8 @@ stack_t *enqueue_node(stack_t **head, const int n);
 
 /*These functions are in the ....c file*/
 
+/*These functions are in the print_errors_1.c file*/
+void print_error_1(char *msg);
+void print_error_2(char *msg);
+
 #endif /* MONTY_H */

@@ -12,23 +12,13 @@ int main(int argc, char **argv)
 	char *line = NULL;
 	size_t line_length = 0;
 
-	(void)line;
-	(void)line_length;
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: %s file\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
+		print_error_1(argv[0]);
 	fs = fopen(argv[1], "r");
 	if (fs == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+		print_error_2(argv[1]);
 	while (getline(&line, &line_length, fs) != -1)
-	{
 		printf("%s", line);
-	}
 
 	return (0);
 }
