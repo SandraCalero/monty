@@ -24,4 +24,6 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token)
 	}
 	if (instructions[i].opcode != NULL)
 		instructions[i].f(stack, line_number);
+	else
+		print_error_3(line_number, token);
 }

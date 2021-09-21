@@ -46,6 +46,7 @@ stack_t *enqueue_node(stack_t **head, const int n);
 /*These functions are in the print_error_message.c file*/
 void print_error_1(void);
 void print_error_2(char *file_name);
+void print_error_3(unsigned int line_number, char *opcode);
 
 /*This function is in the check_instruction.c file*/
 void check_instruction(stack_t **stack, unsigned int line_number, char *token);
