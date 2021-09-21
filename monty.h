@@ -47,4 +47,11 @@ stack_t *enqueue_node(stack_t **head, const int n);
 void print_error_1(void);
 void print_error_2(char *file_name);
 
+/*This function is in the check_instruction.c file*/
+void check_instruction(stack_t **stack, unsigned int line_number, char *token);
+
+/*These function are in the instruction_functions.c file*/
+void execute_push(stack_t **stack, unsigned int line_number);
+void print_stack(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */

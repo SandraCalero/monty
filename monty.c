@@ -10,8 +10,10 @@
 int main(int argc, char **argv)
 {
 	FILE *monty_file = NULL;
-	char *line = NULL;
-	size_t line_length = strlen(line);
+	char *line = NULL, *token = NULL;
+	size_t line_length = 0;
+	stack_t *stack = NULL;
+	unsigned int line_number = 0;
 
 	if (argc != 2)
 		print_error_1();
@@ -19,7 +21,11 @@ int main(int argc, char **argv)
 	if (monty_file == NULL)
 		print_error_2(argv[1]);
 	while (getline(&line, &line_length, monty_file) != -1)
-		printf("%s", line);
-
+	{
+		line_number++;
+		token = strtok(line, " \n\t\r");
+		if (token != NULL)
+			check_instruction(&stack, line_number, token);
+	}
 	return (0);
 }
