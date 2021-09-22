@@ -44,5 +44,4 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
-	return;
 }
