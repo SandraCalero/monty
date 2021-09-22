@@ -73,3 +73,24 @@ void print_stack(stack_t **stack, unsigned int line_number, char **line,
 	(void)line_number;
 	print_stack_t(*stack);
 }
+
+/**
+ */
+void execute_pint(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file)
+{
+}
+
+/**
+ */
+void execute_pop(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file)
+{
+}
+
+/**
+ */
+void execute_swap(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file)
+{
+}

@@ -62,6 +62,18 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 		  FILE **monty_file);
 void print_stack(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
+void execute_pint(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file);
+void execute_pop(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file);
+void execute_swap(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file);
+
+/*These function are in the instruction_functions_1.c file*/
+void execute_add(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file);
+void execute_nop(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file);
 
 /*This function is in free_stack_t_list.c*/
 void free_stack_t(stack_t *head);

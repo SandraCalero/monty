@@ -17,6 +17,11 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 	instruction_t instructions[] = {
 		{"push", execute_push},
 		{"pall", print_stack},
+		{"pint", execute_pint};
+		{"pop", execute_pop};
+		{"swap", execute_swap};
+		{"add", execute_add};
+		{"nop", execute_nop};
 		{NULL, NULL}};
 
 	while (instructions[i].opcode != NULL)
