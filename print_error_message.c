@@ -22,16 +22,3 @@ void print_error_2(char *file_name)
 	fprintf(stderr, "Error: Can't open file %s\n", file_name);
 	exit(EXIT_FAILURE);
 }
-
-/**
- * print_error_3 - Print error when is an invalid instruction
- * @line_number: The number of the line where is the invalid instruction
- * @opcode: The name of the invalid instruction
- *
- * Return: Nothing
- */
-void print_error_3(unsigned int line_number, char *opcode)
-{
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	exit(EXIT_FAILURE);
-}
