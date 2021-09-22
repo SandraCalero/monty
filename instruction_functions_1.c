@@ -13,17 +13,14 @@ void execute_add(stack_t **stack, unsigned int line_number, char **line,
 {
 	int n = 0;
 
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
 	if (list_len(*stack) < 2)
 	{
 		free(*line);
 		free_stack_t(*stack);
 
 		fclose(*monty_file);
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		dprintf(STDOUT_FILENO, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	n = (*stack)->n;
 	pop_node(stack);
