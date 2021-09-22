@@ -52,11 +52,6 @@ void print_error_1(void);
 void print_error_2(char *file_name);
 void print_error_3(unsigned int line_number, char *opcode);
 
-/*These functions are in the print_instruction_error_message.c file*/
-void print_push_error(unsigned int line_number);
-void print_pint_error(unsigned int line_number);
-void print_pop_error(unsigned int line_number);
-
 /*This function is in the check_instruction.c file*/
 void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 		       char **line, FILE **monty_file);
@@ -64,7 +59,7 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 /*These function are in the instruction_functions.c file*/
 void execute_push(stack_t **stack, unsigned int line_number, char **line,
 		  FILE **monty_file);
-void print_stack(stack_t **stack, unsigned int line_number, char **line,
+void execute_pall(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
 void execute_pint(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
@@ -80,8 +75,6 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
 
 /*This function is in free_stack_t_list.c*/
-void invalid_instruction(stack_t **stack, unsigned int line_number,
-			 char *token, char **line, FILE **monty_file);
 void free_stack_t(stack_t *head);
 
 /*This function is in auxiliar_functions.c*/

@@ -16,7 +16,7 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 	int i = 0;
 	instruction_t instructions[] = {
 		{"push", execute_push},
-		{"pall", print_stack},
+		{"pall", execute_pall},
 		{"pint", execute_pint},
 		{"pop", execute_pop},
 		{"swap", execute_swap},
@@ -36,6 +36,10 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 		return;
 	}
 	else
-		invalid_instruction(stack, line_number, token, line,
-				    monty_file);
+	{
+		free(*line);
+		fclose(*monty_file);
+		free_stack_t(*stack);
+		print_error_3(line_number, token);
+	}
 }

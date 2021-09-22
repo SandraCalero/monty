@@ -1,6 +1,9 @@
+pal
 push 1
-pi
+pall
 push 2
-pint
+pall
 push 3
-pint
+pall
+push 4
+pall

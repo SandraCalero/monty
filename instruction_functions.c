@@ -22,7 +22,8 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 		free_stack_t(*stack);
 
 		fclose(*monty_file);
-		print_push_error(line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	number = atoi(second_argument);
 	if (push_node(stack, number) == NULL)
@@ -45,10 +46,10 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
  *
  * Return: Nothing
  */
-void print_stack(stack_t **stack, unsigned int line_number, char **line,
+void execute_pall(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	if (*stack == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
 		free(*line);
 		free_stack_t(*stack);
@@ -79,7 +80,8 @@ void execute_pint(stack_t **stack, unsigned int line_number, char **line,
 		free_stack_t(*stack);
 
 		fclose(*monty_file);
-		print_pint_error(line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	printf("%i\n", (*stack)->n);
 }
@@ -102,7 +104,8 @@ void execute_pop(stack_t **stack, unsigned int line_number, char **line,
 		free_stack_t(*stack);
 
 		fclose(*monty_file);
-		print_pop_error(line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	pop_node(stack);
 }
