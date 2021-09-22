@@ -38,7 +38,7 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 }
 
 /**
- * print_stack - Print the stack
+ * execute_pall - Print the stack
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -51,11 +51,7 @@ void execute_pall(stack_t **stack, unsigned int line_number, char **line,
 {
 	if (*stack == NULL || stack == NULL)
 	{
-		free(*line);
-		free_stack_t(*stack);
-
-		fclose(*monty_file);
-		exit(EXIT_FAILURE);
+		return;
 	}
 	(void)line_number;
 	print_stack_t(*stack);
