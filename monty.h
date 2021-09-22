@@ -61,5 +61,7 @@ void print_stack(stack_t **stack, unsigned int line_number);
 
 /*These functions are in exit_functions.c*/
 void close_file(int status, void *arg);
+void free_line(int status, void *arg);
+void free_stack(int status, void *arg);
 
 #endif /* MONTY_H */

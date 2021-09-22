@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 	monty_file = fopen(argv[1], "r");
 	if (monty_file == NULL)
 		print_error_2(argv[1]);
+	on_exit(free_line, &line);
 	on_exit(close_file, monty_file);
 	while (getline(&line, &line_length, monty_file) != -1)
 	{

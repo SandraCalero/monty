@@ -27,7 +27,11 @@ void execute_push(stack_t **stack, unsigned int line_number)
 		}
 	}
 	number = atoi(second_argument);
-	push_node(stack, number);
+	if (push_node(stack, number) == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
