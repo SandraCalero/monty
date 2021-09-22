@@ -48,7 +48,7 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 void print_stack(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	if (stack == NULL)
+	if (*stack == NULL)
 	{
 		free(*line);
 		free_stack_t(*stack);
@@ -73,14 +73,13 @@ void execute_pint(stack_t **stack, unsigned int line_number, char **line,
 				  FILE **monty_file)
 {
 
-	if (list_len(*stack) == 0)
+	if (list_len(*stack) == 0 || *stack == NULL)
 	{
 		free(*line);
 		free_stack_t(*stack);
 
 		fclose(*monty_file);
-		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		print_pint_error(line_number);
 	}
 	printf("%i\n", (*stack)->n);
 }

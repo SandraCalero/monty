@@ -53,6 +53,7 @@ void print_error_3(unsigned int line_number, char *opcode);
 
 /*These functions are in the print_instruction_error_message.c file*/
 void print_push_error(unsigned int line_number);
+void print_pint_error(unsigned int line_number);
 
 /*This function is in the check_instruction.c file*/
 void check_instruction(stack_t **stack, unsigned int line_number, char *token,
