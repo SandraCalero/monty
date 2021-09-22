@@ -54,6 +54,8 @@ void execute_pall(stack_t **stack, unsigned int line_number, char **line,
 		return;
 	}
 	(void)line_number;
+	(void)line;
+	(void)monty_file;
 	print_stack_t(*stack);
 }
 
