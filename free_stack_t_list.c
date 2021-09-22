@@ -18,3 +18,24 @@ void free_stack_t(stack_t *head)
 	}
 	free(head);
 }
+
+/**
+ * invalid_instruction - Free line and stack, close the file and print error
+ * when an invalid instriction is given
+ * @stack: Pointer to the head of a double linked list to be freed
+ * @line_number: The number of the line where is the invalid instruction
+ * @line: Pointer to a line to be freed
+ * @token: The name of the invalid instruction
+ * @monty_file: File to be closed
+ *
+ * Return: Nothing
+ */
+void invalid_instruction(stack_t **stack, unsigned int line_number,
+			 char *token, char **line, FILE **monty_file)
+{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		print_error_3(line_number, token);
+}

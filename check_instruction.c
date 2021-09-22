@@ -36,11 +36,6 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 		return;
 	}
 	else
-	{
-		free(*line);
-		free_stack_t(*stack);
-
-		fclose(*monty_file);
-		print_error_3(line_number, token);
-	}
+		invalid_instruction(stack, line_number, token, line,
+				    monty_file);
 }

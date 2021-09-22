@@ -77,6 +77,8 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
 
 /*This function is in free_stack_t_list.c*/
+void invalid_instruction(stack_t **stack, unsigned int line_number,
+			 char *token, char **line, FILE **monty_file);
 void free_stack_t(stack_t *head);
 
 /*This function is in auxiliar_functions.c*/

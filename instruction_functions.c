@@ -13,30 +13,16 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 				  FILE **monty_file)
 {
 	char *second_argument;
-	int i, number = 0;
+	int number = 0;
 
 	second_argument = strtok(NULL, "\n\t\r ");
-	if (second_argument == NULL || !check_if_is_digit(second_argument))
+	if (second_argument == NULL || check_if_is_digit(second_argument) == 0)
 	{
 		free(*line);
 		free_stack_t(*stack);
 
 		fclose(*monty_file);
 		print_push_error(line_number);
-	}
-	for (i = 0; second_argument[i] != '\0'; i++)
-	{
-		if (second_argument[i] == '-' && i == 0)
-			continue;
-		if (isdigit(second_argument[i]) == 0)
-		{
-			free(*line);
-			free_stack_t(*stack);
-
-			fclose(*monty_file);
-			print_push_error(line_number);
-			break;
-		}
 	}
 	number = atoi(second_argument);
 	if (push_node(stack, number) == NULL)

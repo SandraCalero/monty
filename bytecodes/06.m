@@ -1,5 +1,5 @@
 push 1
-pint
+pin
 push 2
 pint
 push 3
