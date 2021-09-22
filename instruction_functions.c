@@ -20,6 +20,8 @@ void execute_push(stack_t **stack, unsigned int line_number)
 	{
 		if (isdigit(second_argument[i]) == 0)
 		{
+			if (second_argument[i] == '-')
+			continue;
 			print_push_error(line_number);
 			break;
 		}
