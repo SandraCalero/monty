@@ -59,4 +59,7 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token);
 void execute_push(stack_t **stack, unsigned int line_number);
 void print_stack(stack_t **stack, unsigned int line_number);
 
+/*These functions are in exit_functions.c*/
+void close_file(int status, void *arg);
+
 #endif /* MONTY_H */
