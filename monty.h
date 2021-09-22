@@ -44,6 +44,7 @@ typedef struct instruction_s
 size_t print_stack_t(const stack_t *h);
 stack_t *push_node(stack_t **head, const int n);
 stack_t *enqueue_node(stack_t **head, const int n);
+int pop_node(stack_t **head);
 size_t list_len(const stack_t *h);
 
 /*These functions are in the print_error_message.c file*/
@@ -54,6 +55,7 @@ void print_error_3(unsigned int line_number, char *opcode);
 /*These functions are in the print_instruction_error_message.c file*/
 void print_push_error(unsigned int line_number);
 void print_pint_error(unsigned int line_number);
+void print_pop_error(unsigned int line_number);
 
 /*This function is in the check_instruction.c file*/
 void check_instruction(stack_t **stack, unsigned int line_number, char *token,

@@ -93,6 +93,27 @@ stack_t *enqueue_node(stack_t **head, const int n)
 }
 
 /**
+ * pop_node - removes the top element of the stack.
+ * @head: Pointer to the head of a stack.
+ *
+ * Return: 1 if it succeeded.
+ */
+int pop_node(stack_t **head)
+{
+	stack_t *current = *head;
+
+	if (current->next != NULL)
+	{
+		*head = current->next;
+		current->next->prev = NULL;
+	}
+	else
+		*head = NULL;
+	free(current);
+	return (1);
+}
+
+/**
  * list_len - prints the len of a double linked list
  * @h: pointer to the head node
  *

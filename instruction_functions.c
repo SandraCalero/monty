@@ -96,10 +96,15 @@ void execute_pint(stack_t **stack, unsigned int line_number, char **line,
 void execute_pop(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
+	if (list_len(*stack) == 0 || *stack == NULL)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		print_pop_error(line_number);
+	}
+	pop_node(stack);
 }
 
 /**
