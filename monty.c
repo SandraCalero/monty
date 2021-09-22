@@ -19,15 +19,20 @@ int main(int argc, char **argv)
 		print_error_1();
 	monty_file = fopen(argv[1], "r");
 	if (monty_file == NULL)
+	{
+		free(monty_file);
 		print_error_2(argv[1]);
-	on_exit(free_line, &line);
-	on_exit(close_file, monty_file);
+	}
 	while (getline(&line, &line_length, monty_file) != -1)
 	{
 		line_number++;
 		token = strtok(line, " \n\t\r");
 		if (token != NULL)
-			check_instruction(&stack, line_number, token);
+			check_instruction(&stack, line_number, token, &line,
+					  &monty_file);
 	}
+	free(line);
+	free_stack_t(stack);
+	fclose(monty_file);
 	exit(EXIT_SUCCESS);
 }

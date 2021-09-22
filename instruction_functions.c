@@ -7,21 +7,26 @@
  *
  * Return: Nothing
  */
-
 void execute_push(stack_t **stack, unsigned int line_number)
 {
 	char *second_argument;
 	int i, number = 0;
 
-	second_argument = strtok(NULL, "\n\t\r "); /* pend. check error*/
+	second_argument = strtok(NULL, "\n\t\r ");
 	if (second_argument == NULL)
+	{
+		free_stack_t(*stack);
+
 		print_push_error(line_number);
+	}
 	for (i = 0; second_argument[i] != '\0'; i++)
 	{
 		if (second_argument[i] == '-')
 			continue;
 		if (isdigit(second_argument[i]) == 0)
 		{
+			free_stack_t(*stack);
+
 			print_push_error(line_number);
 			break;
 		}
@@ -29,6 +34,8 @@ void execute_push(stack_t **stack, unsigned int line_number)
 	number = atoi(second_argument);
 	if (push_node(stack, number) == NULL)
 	{
+		free_stack_t(*stack);
+
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -41,11 +48,12 @@ void execute_push(stack_t **stack, unsigned int line_number)
  *
  * Return: Nothing
  */
-
 void print_stack(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL)
 	{
+		free_stack_t(*stack);
+
 		exit(EXIT_FAILURE);
 	}
 	(void)line_number;

@@ -53,15 +53,14 @@ void print_error_3(unsigned int line_number, char *opcode);
 void print_push_error(unsigned int line_number);
 
 /*This function is in the check_instruction.c file*/
-void check_instruction(stack_t **stack, unsigned int line_number, char *token);
+void check_instruction(stack_t **stack, unsigned int line_number, char *token,
+		       char **line, FILE **monty_file);
 
 /*These function are in the instruction_functions.c file*/
 void execute_push(stack_t **stack, unsigned int line_number);
 void print_stack(stack_t **stack, unsigned int line_number);
 
-/*These functions are in exit_functions.c*/
-void close_file(int status, void *arg);
-void free_line(int status, void *arg);
-void free_stack(int status, void *arg);
+/*This function is in free_stack_t_list.c*/
+void free_stack_t(stack_t *head);
 
 #endif /* MONTY_H */
