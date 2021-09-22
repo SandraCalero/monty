@@ -5,7 +5,7 @@
  * @argc: Number of arguments supplied to the program including ./monty string
  * @argv: Arguments to be processed into the executable ./monty
  *
- * Return: Always 0.
+ * Return: If success EXIT_SUCCESS and if error EXIT_FAILURE.
  */
 int main(int argc, char **argv)
 {
@@ -27,5 +27,5 @@ int main(int argc, char **argv)
 		if (token != NULL)
 			check_instruction(&stack, line_number, token);
 	}
-	return (0);
+	exit(EXIT_SUCCESS);
 }
