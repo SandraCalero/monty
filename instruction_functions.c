@@ -42,7 +42,7 @@ void print_stack(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL)
 	{
-		return;
+		exit(EXIT_FAILURE);
 	}
 	(void)line_number;
 	print_stack_t(*stack);
