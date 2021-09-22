@@ -10,7 +10,7 @@
  * Return: Nothing
  */
 void execute_push(stack_t **stack, unsigned int line_number, char **line,
-		  FILE **monty_file)
+				  FILE **monty_file)
 {
 	char *second_argument;
 	int i, number = 0;
@@ -60,7 +60,7 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
  * Return: Nothing
  */
 void print_stack(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file)
+				 FILE **monty_file)
 {
 	if (stack == NULL)
 	{
@@ -75,22 +75,62 @@ void print_stack(stack_t **stack, unsigned int line_number, char **line,
 }
 
 /**
+ * execute_pint - Print the head element into the stack
+ * @stack: Stack to work with
+ * @line_number: The number of line inside of the file
+ * @line: Pointer to a line in a file
+ * @monty_file: Pointer to a file to be readed.
+ *
+ * Return: Nothing
  */
 void execute_pint(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file)
+				  FILE **monty_file)
 {
+
+	if (list_len(*stack) == 0)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%i\n", (*stack)->n);
 }
 
 /**
+ * execute_pop - Delete the first element in the stack
+ * @stack: Stack to work with
+ * @line_number: The number of line inside of the file
+ * @line: Pointer to a line in a file
+ * @monty_file: Pointer to a file to be readed.
+ *
+ * Return: Nothing
  */
 void execute_pop(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file)
+				 FILE **monty_file)
 {
+	(void)stack;
+	(void)line_number;
+	(void)line;
+	(void)monty_file;
 }
 
 /**
+ * execute_swap - Change the 2 first (top) elements of the stack
+ * @stack: Stack to work with
+ * @line_number: The number of line inside of the file
+ * @line: Pointer to a line in a file
+ * @monty_file: Pointer to a file to be readed.
+ *
+ * Return: Nothing
  */
 void execute_swap(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file)
+				  FILE **monty_file)
 {
+	(void)stack;
+	(void)line_number;
+	(void)line;
+	(void)monty_file;
 }

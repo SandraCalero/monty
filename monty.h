@@ -44,6 +44,7 @@ typedef struct instruction_s
 size_t print_stack_t(const stack_t *h);
 stack_t *push_node(stack_t **head, const int n);
 stack_t *enqueue_node(stack_t **head, const int n);
+size_t list_len(const stack_t *h);
 
 /*These functions are in the print_error_message.c file*/
 void print_error_1(void);

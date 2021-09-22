@@ -91,3 +91,25 @@ stack_t *enqueue_node(stack_t **head, const int n)
 	}
 	return (new_node);
 }
+
+/**
+ * list_len - prints the len of linked list
+ * @h: pointer to the head node
+ *
+ * Return: Number of nodes
+ */
+
+size_t list_len(const stack_t *h)
+{
+	unsigned int i = 0;
+	const stack_t *actual;
+
+		actual = h;
+
+	while (actual)
+	{
+		actual = (*actual).next;
+		i++;
+	}
+	return (i);
+}
