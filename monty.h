@@ -79,4 +79,7 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 /*This function is in free_stack_t_list.c*/
 void free_stack_t(stack_t *head);
 
+/*This function is in auxiliar_functions.c*/
+int check_if_is_digit(char *arg);
+
 #endif /* MONTY_H */

@@ -16,7 +16,7 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 	int i, number = 0;
 
 	second_argument = strtok(NULL, "\n\t\r ");
-	if (second_argument == NULL)
+	if (second_argument == NULL || !check_if_is_digit(second_argument))
 	{
 		free(*line);
 		free_stack_t(*stack);
@@ -26,7 +26,7 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 	}
 	for (i = 0; second_argument[i] != '\0'; i++)
 	{
-		if (second_argument[i] == '-')
+		if (second_argument[i] == '-' && i == 0)
 			continue;
 		if (isdigit(second_argument[i]) == 0)
 		{
