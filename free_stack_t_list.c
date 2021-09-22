@@ -33,9 +33,10 @@ void free_stack_t(stack_t *head)
 void invalid_instruction(stack_t **stack, unsigned int line_number,
 			 char *token, char **line, FILE **monty_file)
 {
+		print_error_3(line_number, token);
 		free(*line);
+		fclose(*monty_file);
 		free_stack_t(*stack);
 
-		fclose(*monty_file);
-		print_error_3(line_number, token);
+		exit(EXIT_FAILURE);
 }

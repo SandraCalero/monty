@@ -33,5 +33,4 @@ void print_error_2(char *file_name)
 void print_error_3(unsigned int line_number, char *opcode)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	exit(EXIT_FAILURE);
 }
