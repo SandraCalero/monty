@@ -16,12 +16,12 @@ void execute_push(stack_t **stack, unsigned int line_number)
 	second_argument = strtok(NULL, "\n\t\r "); /* pend. check error*/
 	if (second_argument == NULL)
 		print_push_error(line_number);
-	for (i = 0 ; second_argument[i] != '\0' ; i++)
+	for (i = 0; second_argument[i] != '\0'; i++)
 	{
+		if (second_argument[i] == '-')
+			continue;
 		if (isdigit(second_argument[i]) == 0)
 		{
-			if (second_argument[i] == '-')
-			continue;
 			print_push_error(line_number);
 			break;
 		}

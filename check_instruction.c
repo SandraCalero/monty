@@ -23,7 +23,10 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token)
 		i++;
 	}
 	if (instructions[i].opcode != NULL)
+	{
 		instructions[i].f(stack, line_number);
+		return;
+	}
 	else
 		print_error_3(line_number, token);
 }
