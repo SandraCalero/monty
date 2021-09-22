@@ -27,7 +27,7 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 	}
 	if (instructions[i].opcode != NULL)
 	{
-		instructions[i].f(stack, line_number);
+		instructions[i].f(stack, line_number, line, monty_file);
 		return;
 	}
 	else

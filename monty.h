@@ -36,7 +36,8 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number, char **line,
+		  FILE **monty_file);
 } instruction_t;
 
 /*These functions are in the create__stack_t.c file*/
@@ -57,8 +58,10 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 		       char **line, FILE **monty_file);
 
 /*These function are in the instruction_functions.c file*/
-void execute_push(stack_t **stack, unsigned int line_number);
-void print_stack(stack_t **stack, unsigned int line_number);
+void execute_push(stack_t **stack, unsigned int line_number, char **line,
+		  FILE **monty_file);
+void print_stack(stack_t **stack, unsigned int line_number, char **line,
+		 FILE **monty_file);
 
 /*This function is in free_stack_t_list.c*/
 void free_stack_t(stack_t *head);
