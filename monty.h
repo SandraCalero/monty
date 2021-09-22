@@ -87,4 +87,7 @@ void free_stack_t(stack_t *head);
 /*This function is in auxiliar_functions.c*/
 int check_if_is_digit(char *arg);
 
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
+
 #endif /* MONTY_H */

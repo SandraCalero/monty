@@ -104,7 +104,8 @@ void execute_pop(stack_t **stack, unsigned int line_number, char **line,
 		fclose(*monty_file);
 		print_pop_error(line_number);
 	}
-	pop_node(stack);
+	delete_dnodeint_at_index(stack, 0);
+	/*pop_node(stack);*/
 }
 
 /**
