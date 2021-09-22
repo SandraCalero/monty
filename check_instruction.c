@@ -40,6 +40,7 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 		free(*line);
 		fclose(*monty_file);
 		free_stack_t(*stack);
+
 		print_error_3(line_number, token);
 	}
 }
