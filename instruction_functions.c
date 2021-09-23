@@ -120,6 +120,9 @@ void execute_pop(stack_t **stack, unsigned int line_number, char **line,
 void execute_swap(stack_t **stack, unsigned int line_number, char **line,
 				  FILE **monty_file)
 {
+	stack_t *first = *stack;
+	stack_t *end = *stack;
+
 	if (list_len(*stack) < 2)
 	{
 		free(*line);
@@ -129,4 +132,21 @@ void execute_swap(stack_t **stack, unsigned int line_number, char **line,
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	if (list_len(*stack) == 2)
+	{
+		end = first->next;
+		first->prev = first->next;
+		end->next = first;
+		*stack = end;
+		first->next = NULL;
+		end->prev = NULL;
+		return;
+	}
+	end = first->next;
+	first->prev = first->next;
+	first->next = end->next;
+	end->next->prev = first;
+	end->prev = NULL;
+	end->next = first;
+	*stack = end;
 }
