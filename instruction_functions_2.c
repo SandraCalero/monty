@@ -154,8 +154,19 @@ void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
 void execute_rotr(stack_t **stack, unsigned int line_number, char **line,
 		  FILE **monty_file)
 {
-	(void)stack;
+	stack_t *first = *stack;
+	stack_t *end = *stack;
+
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
+	if (list_len(*stack) <= 0)
+		return;
+	while (end->next != NULL)
+		end = end->next;
+	end->next = first;
+	first->prev = end;
+	*stack = end;
+	end->prev->next = NULL;
+	(*stack)->prev = NULL;
 }
