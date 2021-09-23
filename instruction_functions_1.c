@@ -45,6 +45,7 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 	(void)line;
 	(void)monty_file;
 }
+
 /**
  * execute_sub - subtracts the top element of the stack from the
  * second top element of the stack.
@@ -58,10 +59,20 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 void execute_sub(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
+	int n = 0;
+
+	if (list_len(*stack) < 2)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	n = (*stack)->n;
+	pop_node(stack);
+	(*stack)->n = (*stack)->n - n;
 }
 /**
  * execute_div - divides the second top element of
