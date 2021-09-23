@@ -125,11 +125,21 @@ void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
 void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
 		  FILE **monty_file)
 {
-	(void)stack;
+	stack_t *first = *stack;
+	stack_t *end = *stack;
+
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
+	while (end->next != NULL)
+		end = end->next;
+	first->prev = end;
+	end->next = first;
+	*stack = first->next;
+	(*stack)->prev = NULL;
+	first->next = NULL;
 }
+
 /**
  * execute_rotr -  rotates the stack to the bottom.
  * @stack: Stack to work with
