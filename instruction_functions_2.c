@@ -92,6 +92,7 @@ void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
 		i++;
 	}
 	putchar('\n');
+	putchar('\0');
 }
 /**
  * execute_rotl -  rotates the stack to the top.
