@@ -11,7 +11,7 @@
  * Return: Nothing
  */
 void execute_mod(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file)
+		 FILE **monty_file)
 {
 	(void)stack;
 	(void)line_number;
@@ -30,7 +30,7 @@ void execute_mod(stack_t **stack, unsigned int line_number, char **line,
  * Return: Nothing
  */
 void execute_pchar(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file)
+		   FILE **monty_file)
 {
 	int character;
 
@@ -70,12 +70,28 @@ void execute_pchar(stack_t **stack, unsigned int line_number, char **line,
  * Return: Nothing
  */
 void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file)
+		  FILE **monty_file)
 {
+	int character = 0;
+	stack_t *copy = *stack;
+	int i = 0;
 	(void)stack;
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
+
+	while (copy != NULL)
+	{
+		character = (copy)->n;
+		if (isascii(character) == 0 || character == 0)
+			break;
+		putchar(character);
+		copy = (copy)->next;
+		if ((int)list_len(*stack) == i)
+			break;
+		i++;
+	}
+	putchar('\n');
 }
 /**
  * execute_rotl -  rotates the stack to the top.
@@ -87,7 +103,7 @@ void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
  * Return: Nothing
  */
 void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file)
+		  FILE **monty_file)
 {
 	(void)stack;
 	(void)line_number;
@@ -104,7 +120,7 @@ void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
  * Return: Nothing
  */
 void execute_rotr(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file)
+		  FILE **monty_file)
 {
 	(void)stack;
 	(void)line_number;
