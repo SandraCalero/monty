@@ -74,6 +74,7 @@ void execute_sub(stack_t **stack, unsigned int line_number, char **line,
 	pop_node(stack);
 	(*stack)->n = (*stack)->n - n;
 }
+
 /**
  * execute_div - divides the second top element of
  * the stack by the top element of the stack.
@@ -88,11 +89,32 @@ void execute_sub(stack_t **stack, unsigned int line_number, char **line,
 void execute_div(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
+	int n = 0;
+
+	if (list_len(*stack) < 2)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	n = (*stack)->n;
+	pop_node(stack);
+	(*stack)->n = (*stack)->n / n;
 }
+
 /**
  * execute_mul - multiplies the second top element of the stack
  * with the top element of the stack.
@@ -107,8 +129,18 @@ void execute_div(stack_t **stack, unsigned int line_number, char **line,
 void execute_mul(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
+	int n = 0;
+
+	if (list_len(*stack) < 2)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	n = (*stack)->n;
+	pop_node(stack);
+	(*stack)->n = (*stack)->n * n;
 }
