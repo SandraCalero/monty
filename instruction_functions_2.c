@@ -32,10 +32,32 @@ void execute_mod(stack_t **stack, unsigned int line_number, char **line,
 void execute_pchar(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
+	int character;
+
+	if (list_len(*stack) <= 0)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr,
+			"L%u: can't pchar, stack empty\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+	character = (*stack)->n;
+	if (!isascii(character))
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr,
+			"L%u: can't pchar, value out of range\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", character);
 }
 /**
  * execute_pstr -  prints the char at the top of the stack, followed by
