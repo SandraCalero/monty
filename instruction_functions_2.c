@@ -82,17 +82,16 @@ void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
 
 	while (copy != NULL)
 	{
-		character = (copy)->n;
+		character = copy->n;
 		if (isascii(character) == 0 || character == 0)
 			break;
 		putchar(character);
-		copy = (copy)->next;
-		if ((int)list_len(*stack) == i)
+		copy = copy->next;
+		if (*stack == copy)
 			break;
 		i++;
 	}
 	putchar('\n');
-	putchar('\0');
 }
 /**
  * execute_rotl -  rotates the stack to the top.
