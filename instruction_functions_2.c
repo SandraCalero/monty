@@ -131,6 +131,8 @@ void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
+	if (list_len(*stack) <= 0)
+		return;
 	while (end->next != NULL)
 		end = end->next;
 	first->prev = end;
