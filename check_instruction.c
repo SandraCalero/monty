@@ -22,13 +22,21 @@ void check_instruction(stack_t **stack, unsigned int line_number, char *token,
 		{"swap", execute_swap},
 		{"add", execute_add},
 		{"nop", execute_nop},
+		{"sub", execute_sub},
+		{"div", execute_div},
+		{"mul", execute_mul},
+		{"mod", execute_mod},
+		{"pchar", execute_pchar},
+		{"pstr", execute_pstr},
+		{"rotl", execute_rotl},
+		{"rotr", execute_rotr},
+		{"stack", execute_stack},
+		{"queue", execute_queue},
 		{NULL, NULL}};
-
-	while (instructions[i].opcode != NULL)
+	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, token) == 0)
 			break;
-		i++;
 	}
 	if (instructions[i].opcode != NULL)
 	{

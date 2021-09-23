@@ -72,6 +72,29 @@ void execute_add(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
 void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 		 FILE **monty_file);
+void execute_sub(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_div(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_mul(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+
+/*These function are in the instruction_functions_2.c file*/
+void execute_mod(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_pchar(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_rotr(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+/*These function are in the instruction_functions_3.c file*/
+void execute_stack(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
+void execute_queue(stack_t **stack, unsigned int line_number, char **line,
+				 FILE **monty_file);
 
 /*This function is in free_stack_t_list.c*/
 void free_stack_t(stack_t *head);

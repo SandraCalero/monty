@@ -1,6 +1,8 @@
 #include "monty.h"
+
 /**
- * execute_add - Add the 2 first (top) elements of the stack
+ * execute_mod - computes the rest of the division of the second top element
+ * of the stack by the top element of the stack.
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -8,28 +10,18 @@
  *
  * Return: Nothing
  */
-void execute_add(stack_t **stack, unsigned int line_number, char **line,
+void execute_mod(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
-	int n = 0;
-
-	if (list_len(*stack) < 2)
-	{
-		free(*line);
-		free_stack_t(*stack);
-
-		fclose(*monty_file);
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	n = (*stack)->n;
-	pop_node(stack);
-	(*stack)->n += n;
-
+	(void)stack;
+	(void)line_number;
+	(void)line;
+	(void)monty_file;
 }
 
 /**
- * execute_nop - Do nothing
+ * execute_pchar -  prints the char at the top of the stack, followed by a
+ * new line.
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -37,7 +29,7 @@ void execute_add(stack_t **stack, unsigned int line_number, char **line,
  *
  * Return: Nothing
  */
-void execute_nop(stack_t **stack, unsigned int line_number, char **line,
+void execute_pchar(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
 	(void)stack;
@@ -46,8 +38,8 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
 	(void)monty_file;
 }
 /**
- * execute_sub - subtracts the top element of the stack from the
- * second top element of the stack.
+ * execute_pstr -  prints the char at the top of the stack, followed by
+ * a new line.
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -55,7 +47,7 @@ void execute_nop(stack_t **stack, unsigned int line_number, char **line,
  *
  * Return: Nothing
  */
-void execute_sub(stack_t **stack, unsigned int line_number, char **line,
+void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
 	(void)stack;
@@ -64,9 +56,7 @@ void execute_sub(stack_t **stack, unsigned int line_number, char **line,
 	(void)monty_file;
 }
 /**
- * execute_div - divides the second top element of
- * the stack by the top element of the stack.
- * second top element of the stack.
+ * execute_rotl -  rotates the stack to the top.
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -74,7 +64,7 @@ void execute_sub(stack_t **stack, unsigned int line_number, char **line,
  *
  * Return: Nothing
  */
-void execute_div(stack_t **stack, unsigned int line_number, char **line,
+void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
 	(void)stack;
@@ -83,9 +73,7 @@ void execute_div(stack_t **stack, unsigned int line_number, char **line,
 	(void)monty_file;
 }
 /**
- * execute_mul - multiplies the second top element of the stack
- * with the top element of the stack.
- * second top element of the stack.
+ * execute_rotr -  rotates the stack to the bottom.
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -93,7 +81,7 @@ void execute_div(stack_t **stack, unsigned int line_number, char **line,
  *
  * Return: Nothing
  */
-void execute_mul(stack_t **stack, unsigned int line_number, char **line,
+void execute_rotr(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file)
 {
 	(void)stack;
