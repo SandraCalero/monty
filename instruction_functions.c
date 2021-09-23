@@ -109,7 +109,7 @@ void execute_pop(stack_t **stack, unsigned int line_number, char **line,
 }
 
 /**
- * execute_swap - Change the 2 first (top) elements of the stack
+ * execute_swap - swaps the top two elements of the stack.
  * @stack: Stack to work with
  * @line_number: The number of line inside of the file
  * @line: Pointer to a line in a file
@@ -120,8 +120,13 @@ void execute_pop(stack_t **stack, unsigned int line_number, char **line,
 void execute_swap(stack_t **stack, unsigned int line_number, char **line,
 				  FILE **monty_file)
 {
-	(void)stack;
-	(void)line_number;
-	(void)line;
-	(void)monty_file;
+	if (list_len(*stack) < 2)
+	{
+		free(*line);
+		free_stack_t(*stack);
+
+		fclose(*monty_file);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }
