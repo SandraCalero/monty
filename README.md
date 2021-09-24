@@ -11,7 +11,7 @@
 * What is the proper way to use global variables
 
 ## Flow char
-![Flow_char](https://lucid.app/publicSegments/view/ba833f17-5c5f-4566-82d1-fcf098d0e906/image.jpeg)
+![Flow_char](https://lucid.app/publicSegments/view/b87ff99c-3e01-4b96-ba79-d46272898cd5/image.png)
 
 ## Compilation
 Once the files are downloaded, the compilation process must be done as following:
