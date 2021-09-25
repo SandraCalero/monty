@@ -1,2 +1,3 @@
-push 1
-pushe 2
+push 3
+mod
+pall
