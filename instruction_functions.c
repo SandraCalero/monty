@@ -14,6 +14,7 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 {
 	char *second_argument;
 	int number = 0;
+	stack_t *tmp;
 
 	second_argument = strtok(NULL, "\n\t\r ");
 	if (second_argument == NULL || check_if_is_digit(second_argument) == 0)
@@ -26,7 +27,11 @@ void execute_push(stack_t **stack, unsigned int line_number, char **line,
 		exit(EXIT_FAILURE);
 	}
 	number = atoi(second_argument);
-	if (push_node(stack, number) == NULL)
+	if (direction.is_stack == IS_STACK)
+		tmp = push_node(stack, number);
+	else if (direction.is_stack == IS_QUEUE)
+		tmp = enqueue_node(stack, number);
+	if (tmp == NULL)
 	{
 		free(*line);
 		free_stack_t(*stack);

@@ -8,6 +8,22 @@
 #include <unistd.h>
 /*#include <sys/types.h>*/
 /*#include <sys/stat.h>*/
+#define IS_STACK 1
+#define IS_QUEUE 0
+
+/**
+ * struct direction - Store variable to implement logic to switch
+ * between stack and queue push
+ * @is_stack: Integer that stores a Macro with the information about
+ * if it is stack or it is queue
+ *
+ */
+typedef struct direction
+{
+	int is_stack;
+} stack_direction;
+
+extern stack_direction direction;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -37,7 +53,7 @@ typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number, char **line,
-		  FILE **monty_file);
+			  FILE **monty_file);
 } instruction_t;
 
 /*These functions are in the create__stack_t.c file*/
@@ -53,25 +69,25 @@ void print_error_2(char *file_name);
 
 /*This function is in the check_instruction.c file*/
 void check_instruction(stack_t **stack, unsigned int line_number, char *token,
-		       char **line, FILE **monty_file);
+					   char **line, FILE **monty_file);
 
 /*These function are in the instruction_functions.c file*/
 void execute_push(stack_t **stack, unsigned int line_number, char **line,
-		  FILE **monty_file);
+				  FILE **monty_file);
 void execute_pall(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file);
+				  FILE **monty_file);
 void execute_pint(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file);
+				  FILE **monty_file);
 void execute_pop(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file);
+				 FILE **monty_file);
 void execute_swap(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file);
+				  FILE **monty_file);
 
 /*These function are in the instruction_functions_1.c file*/
 void execute_add(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file);
+				 FILE **monty_file);
 void execute_nop(stack_t **stack, unsigned int line_number, char **line,
-		 FILE **monty_file);
+				 FILE **monty_file);
 void execute_sub(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file);
 void execute_div(stack_t **stack, unsigned int line_number, char **line,
@@ -83,18 +99,18 @@ void execute_mul(stack_t **stack, unsigned int line_number, char **line,
 void execute_mod(stack_t **stack, unsigned int line_number, char **line,
 				 FILE **monty_file);
 void execute_pchar(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file);
+				   FILE **monty_file);
 void execute_pstr(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file);
+				  FILE **monty_file);
 void execute_rotl(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file);
+				  FILE **monty_file);
 void execute_rotr(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file);
+				  FILE **monty_file);
 /*These function are in the instruction_functions_3.c file*/
 void execute_stack(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file);
+				   FILE **monty_file);
 void execute_queue(stack_t **stack, unsigned int line_number, char **line,
-				 FILE **monty_file);
+				   FILE **monty_file);
 
 /*This function is in free_stack_t_list.c*/
 void free_stack_t(stack_t *head);

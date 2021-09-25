@@ -1,5 +1,6 @@
 #include "monty.h"
 
+stack_direction direction;
 /**
  * main - Main function to execute monty
  * @argc: Number of arguments supplied to the program including ./monty string
@@ -15,6 +16,7 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
+	direction.is_stack = IS_STACK;
 	if (argc != 2)
 		print_error_1();
 	monty_file = fopen(argv[1], "r");

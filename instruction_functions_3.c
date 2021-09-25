@@ -17,6 +17,7 @@ void execute_stack(stack_t **stack, unsigned int line_number, char **line,
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
+	direction.is_stack = IS_STACK;
 }
 /**
  * execute_queue - sets the format of the data to a queue (FIFO).
@@ -34,4 +35,5 @@ void execute_queue(stack_t **stack, unsigned int line_number, char **line,
 	(void)line_number;
 	(void)line;
 	(void)monty_file;
+	direction.is_stack = IS_QUEUE;
 }
