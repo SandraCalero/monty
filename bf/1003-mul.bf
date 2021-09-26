@@ -23,3 +23,5 @@
 ]                                                 End of (4) Loop
 <                                                 Position at (3)  
 [.<]                                              Print backwards
+[-]                                               Reset the actual byte
++++++ +++++ .  
